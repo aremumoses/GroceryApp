@@ -19,7 +19,9 @@ const HomeScreen = () => {
 
   const renderCategoryItem = ({ item }) => (
     <View style={styles.categoryItem}>
+      <View style={styles.ct}>
       <Image source={item.icon} style={styles.categoryIcon} resizeMode='contain'/>
+      </View>
       <Text style={styles.categoryName}>{item.name}</Text>
     </View>
   );
@@ -28,10 +30,13 @@ const HomeScreen = () => {
     <TouchableOpacity style={styles.bestSellingItem} onPress={()=>navigation.navigate("Items")}>
       <Image source={item.image} style={styles.bestSellingImage} resizeMode='contain'/>
       <Text style={styles.bestSellingName}>{item.name}</Text>
-      <Text style={styles.bestSellingPrice}>{item.price}</Text>
+      <View style={styles.row}>
+        <Text style={styles.bestSellingPrice}>{item.price}</Text>
       <TouchableOpacity style={styles.addButton}>
         <Text style={styles.addButtonText}>+</Text>
       </TouchableOpacity>
+      </View>
+
     </TouchableOpacity>
   );
 
@@ -69,7 +74,7 @@ const HomeScreen = () => {
       />
 
       <View style={styles.bestSellingHeader}>
-        <Text style={styles.bestSellingTitle}>Best selling</Text>
+        <Text style={styles.bestSellingTitle}>Best selling 🔥</Text>
         <Text style={styles.seeAll}>See all</Text>
       </View>
 
@@ -101,6 +106,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  ct:{
+    backgroundColor: '#F3F5F7',
+    padding: 10,
+    borderRadius: 25,
+  },
   profileImage: {
     width: 40,
     height: 40,
@@ -120,7 +130,7 @@ const styles = StyleSheet.create({
   },
   location: {
     fontSize: 14,
-    color: '#1abc9c',
+    color: '#23AA49',
   },
   searchInput: {
     height: 40,
@@ -149,7 +159,7 @@ const styles = StyleSheet.create({
   },
   seeAll: {
     fontSize: 14,
-    color: '#1abc9c',
+    color: '#23AA49',
   },
   categoriesList: {
     marginBottom: 20,
@@ -157,10 +167,12 @@ const styles = StyleSheet.create({
   categoryItem: {
     alignItems: 'center',
     marginHorizontal: 15,
+   
   },
-  categoryIcon: {
-    width: 50,
-    height: 50,
+  categoryIcon: { 
+ 
+    width: 30,
+    height: 30,
     marginBottom: 5,
   },
   categoryName: {
@@ -199,19 +211,24 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   bestSellingPrice: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 10,
-  },
+    fontSize: 16,marginRight:10,
+    color: '#FF324B',
+fontWeight:'bold'  },
   addButton: {
-    backgroundColor: '#1abc9c',
-    padding: 10,
-    borderRadius: 5,
+    alignItems:'center',justifyContent:'center',
+    backgroundColor: '#23AA49',
+    width:25,height:25,
+    borderRadius: 20,
   },
   addButtonText: {
     color: '#fff',
     fontSize: 16,
   },
+  row:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between'
+  }
 });
 
 export default HomeScreen;

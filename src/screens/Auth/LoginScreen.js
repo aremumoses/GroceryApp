@@ -37,7 +37,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
   },
@@ -54,9 +54,11 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginBottom: 20,
+    marginTop:50
   },
   title: {
-    fontSize: 24,
+    fontSize: 30,
+    paddingHorizontal:30,
     fontWeight: 'bold',
     color: '#000',
     textAlign: 'center',
@@ -76,13 +78,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 26,
+    fontWeight: 'bold',
   },
   button: {
-    backgroundColor: '#1abc9c',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 5,
+    backgroundColor: '#23AA49',
+    paddingVertical: 17,
+    paddingHorizontal: 10*12,
+    borderRadius: 25,
     marginBottom: 20,
   },
   buttonText: {
@@ -93,9 +96,11 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     fontSize: 14,
+    paddingHorizontal:30
   },
   termsLink: {
-    color: '#1abc9c',
+    color: '#5D5FEF',
+    textDecorationLine: 'underline',
   },
 });
 

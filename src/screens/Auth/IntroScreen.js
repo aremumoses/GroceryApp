@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
-import { icons } from '../../constants';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import { FONTS, icons } from '../../constants';
 
 const IntroScreen = ({ navigation }) => {
   return (
     <ImageBackground source={icons.introbackground} style={styles.container}>
       <View style={styles.content}>
+        <Image source={icons.logo} style={{ width: 80, height: 80,bottom:20 }} />
         <Text style={styles.title}>Get your groceries delivered to your home</Text>
         <Text style={styles.subtitle}>
           The best delivery app in town for delivering your daily fresh groceries
@@ -26,9 +27,8 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    marginTop:5*20
   },
   title: {
     fontSize: 24,
@@ -44,14 +44,14 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   button: {
-    backgroundColor: '#1abc9c',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 5,
+    backgroundColor: '#23AA49',
+    paddingVertical: 17,
+    paddingHorizontal: 100,
+    borderRadius: 25,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 18,
   },
 });
 
