@@ -17,6 +17,17 @@ const HomeScreen = () => {
     { id: '2', name: 'Lamb Meat', price: '45$', image: icons.rawmeat },
   ];
 
+  const banners = [
+    { id: '1', image: icons.banner},
+    { id: '2', image: icons.banner},
+    { id: '3', image: icons.banner},
+  
+  ];
+
+  const renderBannerItem = ({ item }) => (
+    <Image source={item.image} style={styles.offerImage} resizeMode='contain'/>
+  );
+
   const renderCategoryItem = ({ item }) => (
     <View style={styles.categoryItem}>
       <View style={styles.ct}>
@@ -42,6 +53,9 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
+      <View style={{backgroundColor:'#F3F5F7'}}>
+
+    <View style={{    marginHorizontal: 20,}}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Image source={icons.avatar} style={styles.profileImage} />
@@ -51,19 +65,37 @@ const HomeScreen = () => {
           </View>
         </View>
         <View style={styles.headerRight}>
+          <Image source={icons.location} style={styles.himage} resizeMode='contain' />
           <Text style={styles.location}>My Flat</Text>
+          <Image source={icons.down} style={styles.himage} resizeMode='contain'/>
         </View>
       </View>
 
-      <TextInput style={styles.searchInput} placeholder="Search category" />
+      {/* <TextInput style={styles.searchInput} placeholder="Search category" /> */}
 
-      <Image source={icons.banner} style={styles.offerImage} />
 
+      <View style={styles.searchContainer}>
+        <Image source={icons.group} style={styles.searchIcon} />
+        <TextInput style={styles.searchInput} placeholder="Search category" />
+      </View>
+
+      <FlatList
+        data={banners}
+        renderItem={renderBannerItem}
+        keyExtractor={item => item.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        // style={styles.bannersList}
+      />
+</View>
+      </View>
+    
+    <View style={{padding: 20,}}>
       <View style={styles.categoriesHeader}>
         <Text style={styles.categoriesTitle}>Categories</Text>
         <Text style={styles.seeAll}>See all</Text>
       </View>
-
+  
       <FlatList
         data={categories}
         renderItem={renderCategoryItem}
@@ -72,6 +104,8 @@ const HomeScreen = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.categoriesList}
       />
+ </View>
+ <View style={{padding: 20,}}>
 
       <View style={styles.bestSellingHeader}>
         <Text style={styles.bestSellingTitle}>Best selling 🔥</Text>
@@ -86,17 +120,20 @@ const HomeScreen = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.bestSellingList}
       />
-    </View>
+      </View>
+      </View>
+ 
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#F5F5F5',
+    marginTop: 10,
+    backgroundColor: '#ffffff',
   },
   header: {
+    backgroundColor: '#F3F5F7',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -124,28 +161,46 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#000',
   },
+ 
   headerRight: {
+    backgroundColor: '#fff',
     alignItems: 'center',
+    flexDirection: 'row',
+    elevation:1,
+    padding:10,
+    borderRadius: 25,
+
   },
+  himage: {
+    height: 15, 
+    width: 15, 
+    marginHorizontal: 5
+  },
+
   location: {
     fontSize: 14,
     color: '#23AA49',
   },
   searchInput: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
+    height: 50,
+    // borderColor: '#ccc',
+    // borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 20,
     backgroundColor: '#fff',
+    fontWeight:'bold ',
+    fontSize: 18,
+    borderRadius: 25,
   },
   offerImage: {
-    width: '100%',
-    height: 150,
+height: 150,
+width: 350,
+  // padding: 10,
     borderRadius: 10,
-    marginBottom: 20,
+    // marginBottom: 20,
   },
   categoriesHeader: {
     flexDirection: 'row',
@@ -158,11 +213,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   seeAll: {
+    fontWeight: 'bold',
     fontSize: 14,
     color: '#23AA49',
   },
   categoriesList: {
-    marginBottom: 20,
+    // marginBottom: 20,
   },
   categoryItem: {
     alignItems: 'center',
@@ -176,6 +232,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   categoryName: {
+    fontWeight: 'bold',
     fontSize: 14,
     color: '#666',
   },
@@ -194,7 +251,7 @@ const styles = StyleSheet.create({
   },
   bestSellingItem: {
     width: 150,
-    backgroundColor: '#fff',
+    backgroundColor: '#F3F5F7',
     borderRadius: 10,
     padding: 10,
     marginRight: 20,
@@ -206,7 +263,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   bestSellingName: {
-    fontSize: 14,
+    fontSize: 17,
     fontWeight: 'bold',
     marginBottom: 5,
   },
@@ -228,7 +285,27 @@ fontWeight:'bold'  },
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between'
-  }
+  }, 
+   searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 25,
+    paddingHorizontal: 10,
+    marginBottom: 20,
+  },
+  searchIcon: {
+    width: 18,
+    height: 18,
+    marginRight: 10,
+  },
+  searchInput: {
+    height: 50,
+    flex: 1,
+    fontSize: 18,
+    fontWeight: 'bold',
+    borderRadius: 25,
+  },
 });
 
 export default HomeScreen;

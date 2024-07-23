@@ -29,8 +29,9 @@ export const rawmeat = require('../../assets/icons/rawmeat.png');
 export const Splash = require('../../assets/icons/Splash.png');
 export const star = require('../../assets/icons/star.png');
 export const search = require('../../assets/icons/search.png');
+export const down = require('../../assets/icons/down.png');
 
 
 export default {
-  apple,avatar,backarrow,banner,bread,broccoli,call,carlendar,carrot,clock,drop,Ellipse,group,hand,introbackground,location,logo,logo2,meat,message,minues,pawpaw,pepper,plus,pngkey,rawmeat,Splash,star,search  
+  apple,avatar,backarrow,banner,bread,broccoli,call,carlendar,carrot,clock,down,drop,Ellipse,group,hand,introbackground,location,logo,logo2,meat,message,minues,pawpaw,pepper,plus,pngkey,rawmeat,Splash,star,search  
 };

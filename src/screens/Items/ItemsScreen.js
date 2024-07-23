@@ -18,10 +18,12 @@ const ItemsScreen = () => {
     <View style={styles.itemCard}>
       <Image source={item.image} style={styles.itemImage} resizeMode='contain'/>
       <Text style={styles.itemName}>{item.name}</Text>
+      <View style={{flexDirection:'row',alignItems:'center'}}>
       <Text style={styles.itemPrice}>1kg, {item.price}</Text>
       <TouchableOpacity style={styles.addButton}>
         <Text style={styles.addButtonText}>+</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -51,7 +53,7 @@ const ItemsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#fff',
     paddingHorizontal: 20,
   },
   header: {
@@ -75,11 +77,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   searchButton: {
-    padding: 10,
+    padding: 5,
   },
   searchIcon: {
-    width: 24,
-    height: 24,
+    width: 18,
+    height: 18,
   },
   listContent: {
     paddingBottom: 20,
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   itemCard: {
-    backgroundColor: '#fff',
+    backgroundColor: '#F5F5F5',
     borderRadius: 10,
     padding: 10,
     marginBottom: 20,
@@ -108,19 +110,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   itemPrice: {
-    fontSize: 14,
-    color: '#666',
+    marginRight: 10,
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'red',
     marginBottom: 10,
     textAlign: 'center',
   },
   addButton: {
-    backgroundColor: '#1abc9c',
+    backgroundColor: '#23AA49',
     padding: 10,
-    borderRadius: 5,
+    width: 35,
+    borderRadius: 20,
   },
   addButtonText: {
     color: '#fff',
     fontSize: 16,
+    textAlign:'center'
   },
 });
 
